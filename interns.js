@@ -14,29 +14,29 @@ const myMovies = [
 ];
 
 // create colletion and insert documents
-// MongoClient.connect(url, function(err, db) {
-//   assert.equal(err, null);
-//   my_db = db.db("fosajeff");
-//   my_db.createCollection("myMovies", function(err, res) {
-//     assert.equal(err, null);
-//     my_db.collection("myMovies").insertMany(myMovies, function(err, res) {
-//       assert.equal(err, null);
-//       assert.equal(5, res.result.n);
-//       assert.equal(5, res.ops.length);
-//       console.log(res.result);
-//       db.close();
-//     });
-//   });
-// });
+MongoClient.connect(url, function(err, db) {
+  assert.equal(err, null);
+  my_db = db.db("fosajeff");
+  my_db.createCollection("myMovies", function(err, res) {
+    assert.equal(err, null);
+    my_db.collection("myMovies").insertMany(myMovies, function(err, res) {
+      assert.equal(err, null);
+      assert.equal(5, res.result.n);
+      assert.equal(5, res.ops.length);
+      console.log(res.result);
+      db.close();
+    });
+  });
+});
 
 // find documents
-// MongoClient.connect(url, function(err, db) {
-//   findDocument(db, function(err, res) {
-//     assert.equal(err, null)
-//     console.log(res)
-//     db.close()
-//   })
-// })
+MongoClient.connect(url, function(err, db) {
+  findDocument(db, function(err, res) {
+    assert.equal(err, null)
+    console.log(res)
+    db.close()
+  })
+})
 
 // update document
 MongoClient.connect(url, function(err, db) {
